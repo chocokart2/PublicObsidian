@@ -111,7 +111,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "T팀용 공개 문서/2024/캡스톤디자인1/공개 문서.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "공개 문서의 백링크"
+              "title": "백링크"
             }
           },
           {
@@ -130,12 +129,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "T팀용 공개 문서/2024/캡스톤디자인1/공개 문서.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "공개 문서의 나가는 링크"
+              "title": "나가는 링크"
             }
           },
           {
@@ -156,11 +154,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "T팀용 공개 문서/2024/캡스톤디자인1/공개 문서.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "공개 문서 개요"
+              "title": "개요"
             }
           }
         ]
@@ -180,14 +176,14 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "c08603d872a4bf3d",
+  "active": "12e78a7b9ebb4f6f",
   "lastOpenFiles": [
+    "T팀용 공개 문서/2024/캡스톤디자인1/공개 문서.md",
     "T팀용 공개 문서/2024/캡스톤디자인1",
     "T팀용 공개 문서/2024",
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/다형성.md",
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/객체.md",
     "P프로그래밍/0대문/P-대문.md",
-    "T팀용 공개 문서/2024/캡스톤디자인1/공개 문서.md",
     "P프로그래밍/2프로그래밍 패러다임/프로그래밍 패러다임.md",
     "T팀용 공개 문서",
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍",
@@ -203,7 +199,6 @@
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/캡슐화.md",
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/상속.md",
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/클래스.md",
-    "A아트/A지브러쉬",
     "Readme.md",
     "Welcome.md"
   ]
