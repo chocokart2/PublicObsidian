@@ -3,7 +3,7 @@
 # 1. 과정
 
 ## 1.1. 깃허브를 검색하고 입장한다
-![image1](FreeLecture/T팀용 공개 문서/2024/Team Null/Pasted image 20250101195545.png)
+![image1](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Pasted%20image%2020250101195545.png?raw=true)
 ## 1.2 Sign up을 클릭한다
 ![[Pasted image 20250101195641.png]]
 ## 1.3. 이메일, 원하는 패스워드, 유저네임을 입력하고 Continue를 클릭
