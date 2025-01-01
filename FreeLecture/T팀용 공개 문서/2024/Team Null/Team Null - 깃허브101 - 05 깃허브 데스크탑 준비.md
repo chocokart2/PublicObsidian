@@ -16,16 +16,15 @@ https://docs.github.com/ko/desktop/installing-and-authenticating-to-github-deskt
 ## 2.3.2. 이미 깃허브를 써봤다면 리포지토리를 클론
 - 왼쪽 상단 클릭
 - 왼쪽 상단의 Add 클릭
-- Clone repository 클릭릭
-![[Pasted image 20250101220409.png]]
-![[Pasted image 20250101220501.png]]
-![[Pasted image 20250101220638.png]]
+- Clone repository 클릭
+![이미지1](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Pasted%20image%2020250101220409.png?raw=true)
+![이미지2](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Pasted%20image%2020250101220501.png?raw=true)
+![이미지3](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Pasted%20image%2020250101220638.png?raw=true)
 ## 2.4. 리포지토리를 클론
-
-![[Pasted image 20250101220228.png]]
+![이미지4](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Pasted%20image%2020250101220228.png?raw=true)
 - 1번의 Filter your repositories에서 Project_d를 검색하고 아래를 클릭합니다.
 - Local Path를 확인합니다. 해당 폴더는 존재하지 않는 폴더거나 빈 폴더만 가능합니다.
 - Clone을 클릭합니다.
-![[Pasted image 20250101220922.png]]
+![이미지5](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Pasted%20image%2020250101220922.png?raw=true)
 ## 2.5. 원하는 브랜치로 이동한다
 
