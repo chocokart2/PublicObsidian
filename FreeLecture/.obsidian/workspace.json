@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 04 깃허브 브랜치 파는 법.md",
+                "file": "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 07 기여하는 법.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Team Null - 깃허브101 - 04 깃허브 브랜치 파는 법"
+              "title": "Team Null - 깃허브101 - 07 기여하는 법"
             }
           }
         ]
@@ -95,7 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 426.5
   },
   "right": {
     "id": "0d85317641ebb6a2",
@@ -111,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 04 깃허브 브랜치 파는 법.md",
+                "file": "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 07 기여하는 법.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +121,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Team Null - 깃허브101 - 04 깃허브 브랜치 파는 법의 백링크"
+              "title": "Team Null - 깃허브101 - 07 기여하는 법의 백링크"
             }
           },
           {
@@ -179,23 +179,28 @@
   },
   "active": "c08603d872a4bf3d",
   "lastOpenFiles": [
-    "Pasted image 20250101211936.png",
-    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브 101.md",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 06 깃허브 푸쉬 오리진 하는 법.md",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250102000323.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250102000420.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250102000223.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250102000201.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250102000146.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250102000129.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250102000036.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250102000007.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250101235906.png",
+    "T팀용 공개 문서/2024/Team Null/Pasted image 20250101235812.png",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 07 기여하는 법.md",
     "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 04 깃허브 브랜치 파는 법.md",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 00 메인.md",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 09 정말 강조하는 바.md",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 05 깃허브 데스크탑 준비.md",
     "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 03 우리팀 리포지토리 가는 법.md",
-    "Pasted image 20250101211458.png",
-    "Pasted image 20250101211427.png",
-    "Pasted image 20250101211409.png",
-    "Pasted image 20250101211322.png",
-    "Pasted image 20250101211233.png",
     "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 02 깃허브 비밀 리포지토리 콜라보레이터 참여하는 법.md",
-    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브 쓰는 법.md",
     "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 01 깃허브 가입하는 법.md",
-    "T팀용 공개 문서/2024/Team Null/Pasted image 20250101202721.png",
-    "T팀용 공개 문서/2024/Team Null/Pasted image 20250101203520.png",
-    "T팀용 공개 문서/2024/Team Null/Pasted image 20250101203443.png",
-    "T팀용 공개 문서/2024/Team Null/Pasted image 20250101203428.png",
-    "T팀용 공개 문서/2024/Team Null/Pasted image 20250101203348.png",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브 쓰는 법.md",
+    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 02 - 변수.md",
+    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 01 - 출력하기.md",
     "T팀용 공개 문서/2024/Team Null/Team Null 메인.md",
     "T팀용 공개 문서/2024/Team Null/무제 폴더",
     "P프로그래밍/1기초 프로그래밍 언어/무제 파일.md",
@@ -204,9 +209,7 @@
     "P프로그래밍/2일반 컴퓨터 과학/설명 - 2일반 컴퓨터 과학 - 메모리 단편화.md",
     "T팀용 공개 문서/2024/Team Null",
     "P프로그래밍/2일반 컴퓨터 과학/출처 - 메모리 단편화 - 001GPT.md",
-    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 02 - 변수.md",
     "P프로그래밍/2일반 컴퓨터 과학",
-    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 01 - 출력하기.md",
     "P프로그래밍/0대문/P-대문.md",
     "P프로그래밍/3고인물만 알고 있는 알고리즘",
     "P프로그래밍/2저수준_디지털논리회로",
@@ -220,10 +223,6 @@
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/캡슐화.md",
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/상속.md",
     "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/다형성.md",
-    "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/객체.md",
-    "P프로그래밍/2프로그래밍 패러다임/프로그래밍 패러다임.md",
-    "P프로그래밍/2프로그래밍 패러다임/선언형 프로그래밍.md",
-    "P프로그래밍/2프로그래밍 패러다임/절차지향 프로그래밍.md",
-    "Readme.md"
+    "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/객체.md"
   ]
 }
