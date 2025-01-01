@@ -1,12 +1,11 @@
 깃허브를 쓰는 법을 알립니다
 
-- 01 깃허브 가입하는 법(완)
-- 02 깃허브 비밀 리포지토리 연결하는 법(완)
-- 03 우리팀 리포지토리 가는 법(완)
-- 04 깃허브 브랜치 파는 법(완)
-- 05 깃허브 데스크탑 준비(완)
-- 06 깃허브 푸쉬 오리진 하는 법(완)
-- 07 깃허브 기여하는 법
+- [01 깃허브 가입하는 법](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2001%20%EA%B9%83%ED%97%88%EB%B8%8C%20%EA%B0%80%EC%9E%85%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+- [02 깃허브 비밀 리포지토리 연결하는 법](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2002%20%EA%B9%83%ED%97%88%EB%B8%8C%20%EB%B9%84%EB%B0%80%20%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%86%A0%EB%A6%AC%20%EC%BD%9C%EB%9D%BC%EB%B3%B4%EB%A0%88%EC%9D%B4%ED%84%B0%20%EC%B0%B8%EC%97%AC%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+- [03 우리팀 리포지토리 가는 법](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2003%20%EC%9A%B0%EB%A6%AC%ED%8C%80%20%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%86%A0%EB%A6%AC%20%EA%B0%80%EB%8A%94%20%EB%B2%95.md)
+- [04 깃허브 브랜치 파는 법](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2004%20%EA%B9%83%ED%97%88%EB%B8%8C%20%EB%B8%8C%EB%9E%9C%EC%B9%98%20%ED%8C%8C%EB%8A%94%20%EB%B2%95.md)
+- [05 깃허브 데스크탑 준비](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2005%20%EA%B9%83%ED%97%88%EB%B8%8C%20%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91%20%EC%A4%80%EB%B9%84.md)
+- [06 깃허브 푸쉬 오리진 하는 법](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2006%20%EA%B9%83%ED%97%88%EB%B8%8C%20%ED%91%B8%EC%89%AC%20%EC%98%A4%EB%A6%AC%EC%A7%84%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+- [07 깃허브 기여하는 법](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2007%20%EA%B8%B0%EC%97%AC%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 - 08 깃허브 컨플릭트 해결하는 법 (좀 이따가 올림)
-- 09 정말 강조하는 바
-- 
+- [09 정말 강조하는 바](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2009%20%EC%A0%95%EB%A7%90%20%EA%B0%95%EC%A1%B0%ED%95%98%EB%8A%94%20%EB%B0%94.md)
