@@ -1,3 +1,4 @@
+[메인으로](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2000%20%EB%A9%94%EC%9D%B8.md)
 
 ## 01. 여러 프로그래머가 동시에 같은 씬을 작업하지 말 것
 `.unity` 파일을 여러 프로그래머가 동시에 수정하는 것은 컨플릭트의 원인이 됩니다. 따라서 그럴 일이 있다면 프로그래머 단톡방에 반드시 알려주세요.
