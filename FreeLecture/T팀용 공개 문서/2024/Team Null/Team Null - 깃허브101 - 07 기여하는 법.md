@@ -1,3 +1,5 @@
+[메인으로](https://github.com/chocokart2/PublicObsidian/blob/main/FreeLecture/T%ED%8C%80%EC%9A%A9%20%EA%B3%B5%EA%B0%9C%20%EB%AC%B8%EC%84%9C/2024/Team%20Null/Team%20Null%20-%20%EA%B9%83%ED%97%88%EB%B8%8C101%20-%2000%20%EB%A9%94%EC%9D%B8.md)
+
 # 1. 개요
 - 브랜치 파기
 - 디스코드로 작업 확인
