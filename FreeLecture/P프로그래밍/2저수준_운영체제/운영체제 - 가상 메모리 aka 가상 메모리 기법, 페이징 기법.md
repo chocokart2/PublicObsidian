@@ -135,7 +135,7 @@ CPU가 페이지를 필요로 할때, 페이지를 메모리에 올리는 것이
 Demand paging은 page table에서 해당 page가 메모리에 있는지를 나타내는 valid-invalid bit를 사용한다. bit가 invalid인 경우 페이지가 물리적 메모리에 없다는 것이다.
 따라서 처음에는 모든 page entry가 invalid로 초기화되어있고, 주소 변환 시 bit가 invalid로 되어있다면 page fault라는 오류가 발생한다. 
 #### 4.1.3.2.2. 페이지 폴트
-Demand paging은 page table에서 해당 page가 메모리에 있는지를 나타내는 valid-invalid bit를 사용한다. bit가 invalid인 경우 페이지가 물리적 메모리에 없름
+
 ### 4.1.3.3. 작동원리: 페이지 교체 알고리즘
 
 ### 4.1.3.4. 작동원리: 보호와 공유
