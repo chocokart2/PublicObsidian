@@ -11,3 +11,4 @@ Index buffers are related to vertex buffers. Their purpose is to record the loca
 인덱스 버퍼의 개념은 책에서 색인을 사용하는 개념과 유사하며, 원하는 주제를 훨씬 빠른 속도로 찾는 데 도움이 됩니다.
 DirectX 문서에 따르면 인덱스 버퍼를 사용하면 비디오 메모리의 더 빠른 위치에 버텍스 데이터를 캐싱할 가능성이 높아질 수 있다고 합니다.
 따라서 성능상의 이유로도 이를 사용하는 것이 좋습니다.
+

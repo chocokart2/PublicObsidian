@@ -11,7 +11,7 @@
 
 튜토리얼 코드는 먼저 HLSL 셰이더 프로그램을 살펴보는 것으로 시작하겠습니다.
 
-Color.vs
+### Color.vs
 이것이 첫 번째 셰이더 프로그램이 될 것입니다. 셰이더는 모델의 실제 렌더링을 수행하는 작은 프로그램입니다. 이 셰이더는 HLSL로 작성되어 color.vs 및 color.ps라는 소스 파일에 저장됩니다. 지금은 .cpp 및 .h 파일과 함께 엔진에 파일을 배치했습니다. Visual studio에서 새 필터/폴더를 만들어야 한다는 점에 유의하세요. 그리고 셰이더를 마우스 오른쪽 버튼으로 클릭하고 “속성”을 선택하면 팝업에서 콘텐츠 섹션에 아무것도 없어야 하고 항목 유형 섹션에 “빌드에 참여하지 않음”이라고 표시되어야 하며 그렇지 않으면 주 진입점에 대한 컴파일 오류가 발생합니다.
 
 이제 이 셰이더의 목적은 이 첫 번째 HLSL 튜토리얼에서 가능한 한 간단하게 유지하기 위해 색칠된 삼각형을 그리는 것입니다. 다음은 정점 셰이더의 코드입니다.
@@ -20,7 +20,9 @@ Color.vs
 
 C와 비슷하게 우리는 우리만의 유형 정의를 만들 수 있습니다. 우리는 HLSL에서 사용할 수 있는 float4와 같은 다양한 유형을 사용할 것입니다. 이는 셰이더 프로그래밍을 더 쉽고 읽기 쉽게 만듭니다. 이 예에서 우리는 x, y, z, w 위치 벡터와 red, green, blue, alpha 색상을 갖는 유형을 만듭니다. POSITION, COLOR, SV_POSITION은 GPU에 변수의 사용을 전달하는 의미론입니다. 구조가 다른 점은 같지만 정점 셰이더와 픽셀 셰이더의 의미론이 다르기 때문에 여기서 두 개의 다른 구조를 만들어야 합니다. POSITION은 정점 셰이더에서 작동하고 SV_POSITION은 픽셀 셰이더에서 작동하는 반면 COLOR는 두 가지 모두에서 작동합니다. 같은 유형을 두 개 이상 원하면 COLOR0, COLOR1 등과 같이 끝에 숫자를 추가해야 합니다.
 
-정점 셰이더는 GPU가 자신에게 전송된 정점 버퍼의 데이터를 처리할 때 호출됩니다. ColorVertexShader라는 이름의 이 정점 셰이더는 정점 버퍼의 모든 정점에 대해 호출됩니다. 정점 셰이더에 대한 입력은 정점 버퍼의 데이터 형식과 셰이더 소스 파일의 유형 정의와 일치해야 합니다. 이 경우 VertexInputType입니다. 정점 셰이더의 출력은 픽셀 셰이더로 전송됩니다. 이 경우 출력 유형은 PixelInputType이라고 하며 위에서도 정의되어 있습니다.
+정점 셰이더는 GPU가 자신에게 전송된 정점 버퍼의 데이터를 처리할 때 호출됩니다.
+
+ColorVertexShader라는 이름의 이 정점 셰이더는 정점 버퍼의 모든 정점에 대해 호출됩니다. 정점 셰이더에 대한 입력은 정점 버퍼의 데이터 형식과 셰이더 소스 파일의 유형 정의와 일치해야 합니다. 이 경우 VertexInputType입니다. 정점 셰이더의 출력은 픽셀 셰이더로 전송됩니다. 이 경우 출력 유형은 PixelInputType이라고 하며 위에서도 정의되어 있습니다.
 
 이를 염두에 두면 정점 셰이더가 PixelInputType 유형의 출력 변수를 생성한다는 것을 알 수 있습니다. 그런 다음 입력 정점의 위치를 ​​가져와서 월드, 뷰, 투영 행렬에 곱합니다. 이렇게 하면 뷰에 따라 3D 공간에서 렌더링할 올바른 위치에 정점이 배치되고 2D 화면에 배치됩니다. 그런 다음 출력 변수는 입력 색상의 사본을 가져온 다음 픽셀 셰이더에 대한 입력으로 사용될 출력을 반환합니다. 또한 입력 위치의 W 값을 1.0으로 설정한다는 점에 유의하세요. 그렇지 않으면 위치에 대해 XYZ 벡터만 읽기 때문에 정의되지 않습니다.
 
@@ -77,7 +79,7 @@ PixelInputType ColorVertexShader(VertexInputType input)
 }
 ```
 
-Color.ps
+### Color.ps
 픽셀 셰이더는 화면에 렌더링될 폴리곤의 각 픽셀을 그립니다. 이 픽셀 셰이더에서는 PixelInputType을 입력으로 사용하고 최종 픽셀 색상을 나타내는 float4를 출력으로 반환합니다. 이 픽셀 셰이더 프로그램은 매우 간단합니다. 색상의 입력 값과 동일하게 픽셀을 색칠하라고만 하면 됩니다. 픽셀 셰이더는 정점 셰이더 출력에서 ​​입력을 받는다는 점에 유의하세요.
 ```
 ////////////////////////////////////////////////////////////////////////////////
@@ -187,6 +189,7 @@ Render는 먼저 SetShaderParameters 함수를 사용하여 셰이더 내부의 
 이제 InitializeShader라는 이 튜토리얼의 가장 중요한 함수 중 하나로 시작하겠습니다. 이 함수는 실제로 셰이더 파일을 로드하여 DirectX와 GPU에서 사용할 수 있게 합니다. 또한 레이아웃의 설정과 정점 버퍼 데이터가 GPU의 그래픽 파이프라인에서 어떻게 보일지도 볼 수 있습니다. 레이아웃은 modelclass.h 파일의 VertexType과 color.vs 파일에 정의된 VertexType과 일치해야 합니다.
 
 여기서 셰이더 프로그램을 버퍼로 컴파일합니다. 셰이더 파일 이름, 셰이더 이름, 셰이더 버전(DirectX 11의 경우 5.0), 셰이더를 컴파일할 버퍼를 지정합니다. 셰이더 컴파일에 실패하면 errorMessage 문자열에 오류 메시지를 넣고 다른 함수로 보내 오류를 씁니다. 그래도 실패하고 errorMessage 문자열이 없으면 셰이더 파일을 찾을 수 없다는 의미이고, 그럴 경우 대화 상자를 띄워서 해당 사실을 알려줍니다.
+
 정점 셰이더와 픽셀 셰이더 코드가 버퍼로 성공적으로 컴파일되면, 우리는 그 버퍼를 사용하여 셰이더 객체 자체를 만듭니다. 우리는 이 지점부터 정점 및 픽셀 셰이더와 인터페이스하기 위해 이 포인터를 사용할 것입니다.
 
 다음 단계는 셰이더에서 처리할 정점 데이터의 레이아웃을 만드는 것입니다. 이 셰이더는 위치 및 색상 벡터를 사용하므로 레이아웃에서 둘 다 만들고 둘 다의 크기를 지정해야 합니다. 의미적 이름은 레이아웃에서 가장 먼저 채워야 하는 것으로, 이를 통해 셰이더가 레이아웃의 이 요소 사용을 결정할 수 있습니다. 두 가지 다른 요소가 있으므로 첫 번째 요소에는 POSITION을 사용하고 두 번째 요소에는 COLOR를 사용합니다. 레이아웃의 다음으로 중요한 부분은 Format입니다. 위치 벡터의 경우 DXGI_FORMAT_R32G32B32_FLOAT를 사용하고 색상의 경우 DXGI_FORMAT_R32G32B32A32_FLOAT를 사용합니다. 마지막으로 주의해야 할 것은 버퍼에서 데이터가 어떻게 배치되는지 나타내는 AlignedByteOffset입니다. 이 레이아웃의 경우 처음 12바이트는 위치이고 다음 16바이트는 색상이라고 말하고, AlignedByteOffset은 각 요소가 시작되는 위치를 보여줍니다. AlignedByteOffset에 값을 직접 입력하는 대신 D3D11_APPEND_ALIGNED_ELEMENT를 사용하면 간격을 알아낼 수 있습니다. 이 튜토리얼에서는 필요하지 않으므로 지금은 기본값으로 설정한 다른 설정을 사용합니다.
@@ -625,7 +628,9 @@ InitializeBuffers 함수는 정점 및 인덱스 버퍼를 만드는 것을 처�
 
 먼저, 나중에 최종 버퍼를 채우는 데 사용할 정점 및 인덱스 데이터를 보관할 두 개의 임시 배열을 만듭니다.
 
-이제 정점과 인덱스 배열을 삼각형의 세 점과 각 점의 인덱스로 채웁니다. 점을 그리는 순서는 시계 방향이라는 점에 유의하세요. 반시계 방향으로 하면 삼각형이 반대 방향을 향하고 있다고 생각하고 뒷면 컬링으로 인해 그리지 않습니다. 정점을 GPU에 보내는 순서는 매우 중요하다는 점을 항상 기억하세요. 정점 설명의 일부이므로 색상도 여기에 설정됩니다. 색상을 녹색으로 설정했습니다.
+이제 정점과 인덱스 배열을 삼각형의 세 점과 각 점의 인덱스로 채웁니다.
+"점을 그리는 순서는 시계 방향이라는 점에 유의하세요."
+반시계 방향으로 하면 삼각형이 반대 방향을 향하고 있다고 생각하고 뒷면 컬링으로 인해 그리지 않습니다. 정점을 GPU에 보내는 순서는 매우 중요하다는 점을 항상 기억하세요. 정점 설명의 일부이므로 색상도 여기에 설정됩니다. 색상을 녹색으로 설정했습니다.
 
 정점 배열과 인덱스 배열이 채워졌으므로 이제 정점 버퍼와 인덱스 버퍼를 만드는 데 사용할 수 있습니다. 두 버퍼를 만드는 방법은 동일합니다. 먼저 버퍼에 대한 설명을 작성합니다. 설명에서 ByteWidth(버퍼 크기)와 BindFlags(버퍼 유형)는 올바르게 채워졌는지 확인해야 하는 내용입니다. 설명을 작성한 후에는 이전에 만든 정점 또는 인덱스 배열을 가리키는 하위 리소스 포인터도 작성해야 합니다. 설명과 하위 리소스 포인터를 사용하면 D3D 장치를 사용하여 CreateBuffer를 호출할 수 있으며 새 버퍼에 대한 포인터가 반환됩니다.
 
@@ -1000,3 +1005,248 @@ void CameraClass::GetViewMatrix(XMMATRIX& viewMatrix)
 }
 
 ```
+
+### Applicationclass.h
+ApplicationClass에 이제 세 개의 새로운 클래스가 추가되었습니다. CameraClass, ModelClass, ColorShaderClass에는 헤더가 추가되었고 개인 멤버 변수도 추가되었습니다. ApplicationClass는 프로젝트에 필요한 모든 클래스 객체를 호출하여 장면을 렌더링하는 데 사용되는 주요 클래스라는 점을 기억하세요.
+```
+////////////////////////////////////////////////////////////////////////////////
+// Filename: applicationclass.h
+////////////////////////////////////////////////////////////////////////////////
+#ifndef _APPLICATIONCLASS_H_
+#define _APPLICATIONCLASS_H_
+
+
+//////////////
+// INCLUDES //
+//////////////
+#include <windows.h>
+
+///////////////////////
+// MY CLASS INCLUDES //
+///////////////////////
+#include "d3dclass.h"
+#include "cameraclass.h"
+#include "modelclass.h"
+#include "colorshaderclass.h"
+
+/////////////
+// GLOBALS //
+/////////////
+const bool FULL_SCREEN = false;
+const bool VSYNC_ENABLED = true;
+const float SCREEN_DEPTH = 1000.0f;
+const float SCREEN_NEAR = 0.3f;
+
+////////////////////////////////////////////////////////////////////////////////
+// Class name: ApplicationClass
+////////////////////////////////////////////////////////////////////////////////
+class ApplicationClass
+{
+public:
+	ApplicationClass();
+	ApplicationClass(const ApplicationClass&);
+	~ApplicationClass();
+
+	bool Initialize(int, int, HWND);
+	void Shutdown();
+	bool Frame();
+
+private:
+	bool Render();
+
+private:
+	D3DClass* m_Direct3D;
+	CameraClass* m_Camera;
+	ModelClass* m_Model;
+	ColorShaderClass* m_ColorShader;
+};
+
+#endif
+
+```
+### Applicationclass.cpp
+ApplicationClass의 첫 번째 변경 사항은 클래스 생성자에서 카메라, 모델, 색상 셰이더 객체를 null로 초기화하는 것입니다.
+
+또한, 세 개의 새 객체를 생성하고 초기화하기 위해 Initialize 함수도 업데이트되었습니다.
+
+
+Shutdown도 업데이트되어 세 개의 새로운 객체를 종료하고 해제합니다.
+
+
+프레임 기능은 이전 튜토리얼과 동일하게 유지되었습니다.
+
+
+예상했듯이 Render 함수에 가장 많은 변경 사항이 있습니다. 여전히 장면을 지우는 것으로 시작하지만 검은색으로 지워집니다. 그런 다음 카메라 객체에 대한 Render 함수를 호출하여 Initialize 함수에서 설정된 카메라 위치를 기반으로 뷰 행렬을 만듭니다. 뷰 행렬이 생성되면 카메라 클래스에서 복사본을 가져옵니다. 또한 D3DClass 객체에서 월드 및 투영 행렬의 복사본을 가져옵니다. 그런 다음 ModelClass::Render 함수를 호출하여 녹색 삼각형 모델 지오메트리를 그래픽 파이프라인에 넣습니다. 이제 정점이 준비되었으므로 모델 정보와 각 정점을 배치하기 위한 세 개의 행렬을 사용하여 색상 셰이더를 호출하여 정점을 그립니다. 이제 녹색 삼각형이 백 버퍼에 그려집니다. 그러면 장면이 완료되고 EndScene을 호출하여 화면에 표시합니다.
+
+```
+////////////////////////////////////////////////////////////////////////////////
+// Filename: applicationclass.cpp
+////////////////////////////////////////////////////////////////////////////////
+#include "applicationclass.h"
+
+
+ApplicationClass::ApplicationClass()
+{
+	m_Direct3D = 0;
+	m_Camera = 0;
+	m_Model = 0;
+	m_ColorShader = 0;
+}
+
+
+ApplicationClass::ApplicationClass(const ApplicationClass& other)
+{
+}
+
+
+ApplicationClass::~ApplicationClass()
+{
+}
+
+
+bool ApplicationClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
+{
+	bool result;
+
+
+	// Create and initialize the Direct3D object.
+	m_Direct3D = new D3DClass;
+
+	result = m_Direct3D->Initialize(screenWidth, screenHeight, VSYNC_ENABLED, hwnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize Direct3D", L"Error", MB_OK);
+		return false;
+	}
+
+	// Create the camera object.
+	m_Camera = new CameraClass;
+
+	// Set the initial position of the camera.
+	m_Camera->SetPosition(0.0f, 0.0f, -5.0f);
+
+	// Create and initialize the model object.
+	m_Model = new ModelClass;
+
+	result = m_Model->Initialize(m_Direct3D->GetDevice());
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
+		return false;
+	}
+
+	// Create and initialize the color shader object.
+	m_ColorShader = new ColorShaderClass;
+
+	result = m_ColorShader->Initialize(m_Direct3D->GetDevice(), hwnd);
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the color shader object.", L"Error", MB_OK);
+		return false;
+	}
+
+	return true;
+}
+
+
+void ApplicationClass::Shutdown()
+{
+	// Release the color shader object.
+	if (m_ColorShader)
+	{
+		m_ColorShader->Shutdown();
+		delete m_ColorShader;
+		m_ColorShader = 0;
+	}
+
+	// Release the model object.
+	if (m_Model)
+	{
+		m_Model->Shutdown();
+		delete m_Model;
+		m_Model = 0;
+	}
+
+	// Release the camera object.
+	if (m_Camera)
+	{
+		delete m_Camera;
+		m_Camera = 0;
+	}
+
+	// Release the Direct3D object.
+	if (m_Direct3D)
+	{
+		m_Direct3D->Shutdown();
+		delete m_Direct3D;
+		m_Direct3D = 0;
+	}
+
+	return;
+}
+
+
+bool ApplicationClass::Frame()
+{
+	bool result;
+
+
+	// Render the graphics scene.
+	result = Render();
+	if (!result)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+
+bool ApplicationClass::Render()
+{
+	XMMATRIX worldMatrix, viewMatrix, projectionMatrix;
+	bool result;
+
+
+	// Clear the buffers to begin the scene.
+	m_Direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
+
+	// Generate the view matrix based on the camera's position.
+	m_Camera->Render();
+
+	// Get the world, view, and projection matrices from the camera and d3d objects.
+	m_Direct3D->GetWorldMatrix(worldMatrix);
+	m_Camera->GetViewMatrix(viewMatrix);
+	m_Direct3D->GetProjectionMatrix(projectionMatrix);
+
+	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
+	m_Model->Render(m_Direct3D->GetDeviceContext());
+
+	// Render the model using the color shader.
+	result = m_ColorShader->Render(m_Direct3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix);
+	if (!result)
+	{
+		return false;
+	}
+
+	// Clear the buffers to begin the scene.
+	m_Direct3D->BeginScene(0.5f, 0.5f, 0.5f, 1.0f);
+
+
+	// Present the rendered scene to the screen.
+	m_Direct3D->EndScene();
+	
+	return true;
+}
+```
+
+
+이 튜토리얼을 마치기 전에 이 튜토리얼의 렌더링 행렬이 어떻게 작동하는지 이해했는지 확인하고 싶습니다.
+
+color.vs vertex 셰이더를 다시 잠깐 살펴보겠습니다. 해당 함수에 들어오는 각 정점을 월드 행렬, 뷰 행렬, 그리고 투영 행렬로 곱하는 것을 보실 수 있습니다.
+
+정점을 월드 행렬로 곱하면 3D 월드에서 해당 정점을 배치합니다. 월드 행렬에는 이동, 회전, 크기 조정 등과 같은 것을 적용할 수 있습니다. 따라서 이를 통해 3D 공간에서 해당 정점을 올바르게 배치할 수 있습니다.
+
+다음으로 정점을 뷰 행렬로 곱하면 정점의 위치를 ​​다시 현재 보고 있는 위치, 즉 카메라 위치로 업데이트합니다.
+
+마지막으로 정점을 투영 행렬로 곱하면 정점의 위치를 ​​다시 업데이트하여 2D 화면으로 다시 렌더링합니다.
