@@ -56,6 +56,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 ### XXX Systemclass
 #### XXXX Systemclass 헤더
 ##### XXXXX 클래스 역할
+SystemClass는 윈도우 기반 애플리케이션의 전체적인 흐름을 관리하는 클래스입니다. 이 클래스는 애플리케이션을 초기화하고, 입력을 처리하고, 메인 루프에서 주기적으로 시스템 업데이트를 수행하며, 애플리케이션을 종료하는 기능을 담당합니다.
+
 ##### XXXXX 메서드 목록
 SystemClass();
 SystemClass(const SystemClass&);
@@ -176,10 +178,110 @@ static SystemClass* ApplicationHandle = 0;
 함수 종료
 - 종료 작업을 마친 후 함수가 종료됩니다.
 ###### XXXXXX 메서드 void Run();
+- **메시지 구조체 초기화**
+    - `msg` 변수를 `ZeroMemory`를 사용하여 초기화한다.
+- **루프 시작 (조건: `done == false`)**
+    - `done` 변수를 `false`로 설정하고 반복을 시작한다.
+- **윈도우 메시지 처리**
+    - `PeekMessage`를 사용하여 메시지 큐에서 메시지를 확인하고 가져온다.
+    - 메시지가 있으면:
+        - `TranslateMessage`를 호출하여 키 입력을 변환한다.
+        - `DispatchMessage`를 호출하여 메시지를 윈도우 프로시저로 보낸다.
+- **애플리케이션 종료 여부 확인**
+    - `msg.message`가 `WM_QUIT`인지 확인한다.
+    - `WM_QUIT`이면 `done = true`로 설정하여 루프를 종료한다.
+- **프레임 처리**
+    - `Frame()` 함수를 호출하여 프레임을 처리한다.
+    - `Frame()`의 반환값이 `false`이면 `done = true`로 설정하여 루프를 종료한다.
+- **루프 반복 또는 종료**
+    - `done`이 `false`면 루프를 반복한다.
+    - `done`이 `true`이면 루프를 빠져나가고 함수 실행이 종료된다.
 ###### XXXXXX 메서드 LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
+- **메시지 수신**
+    - `MessageHandler` 함수가 호출되며 `umsg` 값(메시지 유형)을 확인한다.
+- **키보드 입력 판별**
+    - `umsg` 값이 `WM_KEYDOWN`인지 확인한다.
+        - **예:**
+            - `wparam`(눌린 키 코드)을 `m_Input->KeyDown()` 함수에 전달하여 키가 눌렸음을 기록한다.
+            - `0`을 반환하고 함수 종료.
+        - **아니오:** 다음 단계로 진행.
+- **키보드 해제 판별**
+    - `umsg` 값이 `WM_KEYUP`인지 확인한다.
+        - **예:**
+            - `wparam`(해제된 키 코드)을 `m_Input->KeyUp()` 함수에 전달하여 키가 해제되었음을 기록한다.
+            - `0`을 반환하고 함수 종료.
+        - **아니오:** 다음 단계로 진행.
+- **기타 메시지 처리**
+    - 위 두 경우가 아니라면 기본 메시지 처리기(`DefWindowProc`)를 호출하여 메시지를 처리하고 반환한다.
 ###### XXXXXX 메서드 bool Frame();
+- `result` 변수를 선언한다.
+- 사용자가 **ESC 키(VK_ESCAPE)** 를 눌렀는지 확인한다.
+    - **참(True)**: `false`를 반환하고 종료한다.
+    - **거짓(False)**: 다음 단계로 진행한다.
+- `m_Application` 객체의 `Frame()` 함수를 호출하여 결과를 `result`에 저장한다.
+    - **result가 false인 경우**: `false`를 반환하고 종료한다.
+    - **result가 true인 경우**: 다음 단계로 진행한다.
+- `true`를 반환하고 종료한다.
 ###### XXXXXX 메서드 void InitializeWindows(int&, int&);
+- **초기 설정**
+    - `ApplicationHandle`에 현재 객체를 저장한다.
+    - `m_hinstance`에 현재 애플리케이션의 인스턴스를 저장한다.
+    - `m_applicationName`을 `"Engine"`으로 설정한다.
+- **윈도우 클래스 초기화 및 등록**
+    - `WNDCLASSEX` 구조체 `wc`를 기본값으로 설정한다.
+    - `WndProc`을 윈도우 프로시저 함수로 지정한다.
+    - 아이콘, 커서, 배경 브러시 등을 설정한다.
+    - `RegisterClassEx(&wc)`를 호출하여 윈도우 클래스를 등록한다.
+- **사용자의 화면 해상도 가져오기**
+    - `screenWidth`와 `screenHeight`를 `GetSystemMetrics(SM_CXSCREEN)`, `GetSystemMetrics(SM_CYSCREEN)`를 사용하여 설정한다.
+- **전체 화면 또는 창 모드 설정**
+    - **전체 화면 모드 (`FULL_SCREEN == true`)**
+        - `DEVMODE` 구조체 `dmScreenSettings`를 초기화한다.
+        - `dmPelsWidth`, `dmPelsHeight`, `dmBitsPerPel`을 현재 화면 해상도 및 32비트 색상으로 설정한다.
+        - `ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN)`을 호출하여 전체 화면 모드로 변경한다.
+        - `posX`와 `posY`를 `(0,0)`으로 설정하여 좌측 상단에 배치한다.
+    - **창 모드 (`FULL_SCREEN == false`)**
+        - `screenWidth = 800`, `screenHeight = 600`으로 설정한다.
+        - `posX`, `posY`를 현재 화면 중앙으로 설정한다.
+- **윈도우 생성 및 화면 표시**
+    - `CreateWindowEx`를 호출하여 지정된 해상도와 위치로 윈도우를 생성하고 핸들을 `m_hwnd`에 저장한다.
+    - `ShowWindow(m_hwnd, SW_SHOW)`, `SetForegroundWindow(m_hwnd)`, `SetFocus(m_hwnd)`를 호출하여 창을 활성화한다.
+    - `ShowCursor(false)`를 호출하여 마우스 커서를 숨긴다.
+- **함수 종료**
+    - `return`을 실행하여 함수가 종료된다.
 ###### XXXXXX 메서드 void ShutdownWindows();
+- **마우스 커서를 보이게 설정한다.**
+    - `ShowCursor(true);`를 호출하여 마우스 커서를 화면에 표시한다.
+- **전체 화면 모드에서 나갈 경우, 디스플레이 설정을 복원한다.**
+    - `FULL_SCREEN`이 `true`이면 `ChangeDisplaySettings(NULL, 0);`을 실행하여 디스플레이 설정을 기본값으로 변경한다.
+- **윈도우를 제거한다.**
+    - `DestroyWindow(m_hwnd);`를 호출하여 현재 애플리케이션의 창을 제거한다.
+    - 이후 `m_hwnd`를 `NULL`로 설정하여 윈도우 핸들을 초기화한다.
+- **애플리케이션 인스턴스를 제거한다.**
+    - `UnregisterClass(m_applicationName, m_hinstance);`를 실행하여 애플리케이션 클래스 등록을 해제한다.
+    - 이후 `m_hinstance`를 `NULL`로 설정하여 인스턴스를 초기화한다.
+- **클래스의 전역 포인터를 초기화한다.**
+    - `ApplicationHandle = NULL;`을 실행하여 애플리케이션 핸들을 해제한다.
+- **함수를 종료한다.**
+    - `return;`을 실행하여 `ShutdownWindows` 함수를 종료한다.
+###### XXXXXX 메서드 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+- **함수 시작**:
+    - `WndProc` 함수가 호출되면, 전달된 매개변수(`hwnd`, `umessage`, `wparam`, `lparam`)를 확인한다.
+- **메시지 확인**:
+    - 전달된 `umessage` 값에 따라 다른 처리를 수행한다.
+- **WM_DESTROY 메시지 확인**:
+    - `umessage`가 `WM_DESTROY`인 경우:
+        - `PostQuitMessage(0)` 함수를 호출하여 프로그램 종료 요청을 보낸다.
+        - `0`을 반환하고 함수 종료.
+- **WM_CLOSE 메시지 확인**:
+    - `umessage`가 `WM_CLOSE`인 경우:
+        - `PostQuitMessage(0)` 함수를 호출하여 프로그램 종료 요청을 보낸다.
+        - `0`을 반환하고 함수 종료.
+- **기타 메시지 처리**:
+    - 위의 경우에 해당하지 않는 모든 메시지는 `ApplicationHandle->MessageHandler` 함수를 호출하여 처리한다.
+    - 이 함수는 `hwnd`, `umessage`, `wparam`, `lparam`을 인자로 받아 처리한 후 결과를 반환한다.
+- **함수 종료**:
+    - 최종적으로 처리된 결과를 반환하고 함수 실행을 마친다.
 
 ##### XXXXX 원문 번역
 클래스 생성자에서 객체 포인터를 null로 초기화합니다. 이는 이러한 객체의 초기화가 실패하면 Shutdown 함수가 나중에 해당 객체를 정리하려고 시도하기 때문에 중요합니다. 객체가 null이 아니면 유효한 생성된 객체라고 가정하고 정리해야 합니다. 애플리케이션에서 모든 포인터와 변수를 null로 초기화하는 것도 좋은 방법입니다. 그렇게 하지 않으면 일부 릴리스 빌드가 실패합니다.
@@ -459,6 +561,31 @@ void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 	return;
 }
 
+void SystemClass::ShutdownWindows()
+{
+	// Show the mouse cursor.
+	ShowCursor(true);
+
+	// Fix the display settings if leaving full screen mode.
+	if(FULL_SCREEN)
+	{
+		ChangeDisplaySettings(NULL, 0);
+	}
+
+	// Remove the window.
+	DestroyWindow(m_hwnd);
+	m_hwnd = NULL;
+
+	// Remove the application instance.
+	UnregisterClass(m_applicationName, m_hinstance);
+	m_hinstance = NULL;
+
+	// Release the pointer to this class.
+	ApplicationHandle = NULL;
+
+	return;
+}
+
 LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 {
 	switch(umessage)
@@ -484,4 +611,56 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 		}
 	}
 }
+```
+### XXX Inputclass 클래스
+#### XXXX Inputclass.h 클래스 헤더
+##### XXXXX 클래스 역할
+키보드 입력과 출력을 담당하는 클래스입니다.
+##### XXXXX 메서드 목록
+InputClass();
+InputClass(const InputClass&);
+~InputClass();
+void Initialize();
+void KeyDown(unsigned int);
+void KeyUp(unsigned int);
+bool IsKeyDown(unsigned int);
+##### XXXXX 원문 번역
+튜토리얼을 간단하게 유지하기 위해 DirectInput(훨씬 더 뛰어난)에 대한 튜토리얼을 할 때까지는 일단 윈도우 입력을 사용했습니다. 입력 클래스는 키보드에서 사용자 입력을 처리합니다. 이 클래스는 SystemClass::MessageHandler 함수에서 입력을 받습니다. 입력 객체는 각 키의 상태를 키보드 배열에 저장합니다. 쿼리를 받으면 특정 키가 눌렸는지 호출하는 함수에 알려줍니다. 헤더는 다음과 같습니다.
+##### XXXXX .h 코드
+```C++
+////////////////////////////////////////////////////////////////////////////////
+// Filename: inputclass.h
+////////////////////////////////////////////////////////////////////////////////
+#ifndef _INPUTCLASS_H_
+#define _INPUTCLASS_H_
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Class name: InputClass
+////////////////////////////////////////////////////////////////////////////////
+class InputClass
+{
+public:
+	InputClass();
+	InputClass(const InputClass&);
+	~InputClass();
+
+	void Initialize();
+
+	void KeyDown(unsigned int);
+	void KeyUp(unsigned int);
+
+	bool IsKeyDown(unsigned int);
+
+private:
+	bool m_keys[256];
+};
+```
+#### XXXX 클래스 구현
+##### XXXXX 각 메서드 흐름
+###### XXXXXX 메서드 a
+##### XXXXX 원문 번역
+##### XXXXX .cpp 코드
+```C++
+//////////////////////////////////////////////////////////////////////////////// // Filename: inputclass.cpp //////////////////////////////////////////////////////////////////////////////// #include "inputclass.h" InputClass::InputClass() { } InputClass::InputClass(const InputClass& other) { } InputClass::~InputClass() { } void InputClass::Initialize() { int i; // Initialize all the keys to being released and not pressed. for(i=0; i<256; i++) { m_keys[i] = false; } return; } void InputClass::KeyDown(unsigned int input) { // If a key is pressed then save that state in the key array. m_keys[input] = true; return; } void InputClass::KeyUp(unsigned int input) { // If a key is released then clear that state in the key array. m_keys[input] = false; return; } bool InputClass::IsKeyDown(unsigned int key) { // Return what state the key is in (pressed/not pressed). return m_keys[key]; }
 ```
