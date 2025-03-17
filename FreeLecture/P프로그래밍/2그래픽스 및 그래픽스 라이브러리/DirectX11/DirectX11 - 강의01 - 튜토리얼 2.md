@@ -658,9 +658,80 @@ private:
 ```
 #### XXXX 클래스 구현
 ##### XXXXX 각 메서드 흐름
-###### XXXXXX 메서드 a
+###### XXXXXX 메서드 InputClass();
+없음
+###### XXXXXX 메서드 InputClass(const InputClass&);
+없음
+###### XXXXXX 메서드 ~InputClass();
+없음
+###### XXXXXX 메서드 void Initialize();
+m_keys 멤버의 모든 원소를 false로 변경
+###### XXXXXX 메서드 void KeyDown(unsigned int);
+키코드가 input인 키를 눌러졌음을 표기하기 위해 해당 원소를 true로 변경
+###### XXXXXX 메서드 void KeyUp(unsigned int);
+키코드가 input인 키가 떼졌음 표기하기 위해 해당 원소를 false로 변경
+###### XXXXXX 메서드 bool IsKeyDown(unsigned int);
+해당 키가 눌러졌는지를 표현
 ##### XXXXX 원문 번역
+없음
 ##### XXXXX .cpp 코드
 ```C++
-//////////////////////////////////////////////////////////////////////////////// // Filename: inputclass.cpp //////////////////////////////////////////////////////////////////////////////// #include "inputclass.h" InputClass::InputClass() { } InputClass::InputClass(const InputClass& other) { } InputClass::~InputClass() { } void InputClass::Initialize() { int i; // Initialize all the keys to being released and not pressed. for(i=0; i<256; i++) { m_keys[i] = false; } return; } void InputClass::KeyDown(unsigned int input) { // If a key is pressed then save that state in the key array. m_keys[input] = true; return; } void InputClass::KeyUp(unsigned int input) { // If a key is released then clear that state in the key array. m_keys[input] = false; return; } bool InputClass::IsKeyDown(unsigned int key) { // Return what state the key is in (pressed/not pressed). return m_keys[key]; }
+////////////////////////////////////////////////////////////////////////////////
+// Filename: inputclass.cpp
+////////////////////////////////////////////////////////////////////////////////
+#include "inputclass.h"
+
+
+InputClass::InputClass()
+{
+}
+
+
+InputClass::InputClass(const InputClass& other)
+{
+}
+
+
+InputClass::~InputClass()
+{
+}
+
+
+void InputClass::Initialize()
+{
+	int i;
+	
+
+	// Initialize all the keys to being released and not pressed.
+	for(i=0; i<256; i++)
+	{
+		m_keys[i] = false;
+	}
+
+	return;
+}
+
+
+void InputClass::KeyDown(unsigned int input)
+{
+	// If a key is pressed then save that state in the key array.
+	m_keys[input] = true;
+	return;
+}
+
+
+void InputClass::KeyUp(unsigned int input)
+{
+	// If a key is released then clear that state in the key array.
+	m_keys[input] = false;
+	return;
+}
+
+
+bool InputClass::IsKeyDown(unsigned int key)
+{
+	// Return what state the key is in (pressed/not pressed).
+	return m_keys[key];
+}
 ```
+
