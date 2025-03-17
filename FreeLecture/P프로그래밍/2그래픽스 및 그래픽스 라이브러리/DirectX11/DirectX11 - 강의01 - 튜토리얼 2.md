@@ -735,3 +735,129 @@ bool InputClass::IsKeyDown(unsigned int key)
 }
 ```
 
+### XXX Applicationclass 클래스
+#### XXXX Applicationclass.h 클래스 헤더
+##### XXXXX 클래스 역할
+- **그래픽 관련 기능 캡슐화**
+    - 애플리케이션의 그래픽 관련 기능을 담당하는 클래스입니다. 향후 그래픽 객체와 렌더링을 관리할 예정입니다.
+- **전역 그래픽 설정 관리**
+    - `FULL_SCREEN`, `VSYNC_ENABLED`, `SCREEN_DEPTH`, `SCREEN_NEAR` 등의 전역 변수(Global Settings)를 통해 **화면 모드(전체 화면/창 모드), VSync, 화면 깊이** 등의 그래픽 관련 설정을 정의합니다.
+- **애플리케이션의 초기화 및 종료 관리**
+    - `Initialize(int, int, HWND)`: 애플리케이션을 초기화하는 함수입니다.
+    - `Shutdown()`: 애플리케이션을 종료 및 정리하는 함수입니다.
+- **프레임 단위 처리 및 렌더링**
+    - `Frame()`: 애플리케이션의 프레임별 작업을 처리하는 함수입니다.
+    - `Render()`: 실제 렌더링을 수행하는 함수(현재는 선언만 되어 있음)입니다.
+##### XXXXX 메서드 목록
+ApplicationClass();
+ApplicationClass(const ApplicationClass&);
+~ApplicationClass();
+bool Initialize(int, int, HWND);
+void Shutdown();
+bool Frame();
+bool Render();
+##### XXXXX 원문 번역
+애플리케이션 클래스는 시스템 클래스에서 생성되는 다른 객체입니다. 이 애플리케이션의 모든 그래픽 기능은 이 클래스에 캡슐화됩니다. 또한 전체 화면 또는 창 모드와 같이 변경하고 싶을 수 있는 모든 그래픽 관련 글로벌 설정에 대해 이 파일의 헤더를 사용합니다. 현재 이 클래스는 비어 있지만 향후 튜토리얼에서는 모든 그래픽 객체를 포함할 것입니다.
+##### XXXXX .h 코드
+```C++
+////////////////////////////////////////////////////////////////////////////////
+// Filename: applicationclass.h
+////////////////////////////////////////////////////////////////////////////////
+#ifndef _APPLICATIONCLASS_H_
+#define _APPLICATIONCLASS_H_
+
+
+//////////////
+// INCLUDES //
+//////////////
+#include <windows.h>
+
+
+/////////////
+// GLOBALS //
+/////////////
+const bool FULL_SCREEN = false;
+const bool VSYNC_ENABLED = true;
+const float SCREEN_DEPTH = 1000.0f;
+const float SCREEN_NEAR = 0.3f;
+
+We'll need these four globals to start with.
+
+////////////////////////////////////////////////////////////////////////////////
+// Class name: ApplicationClass
+////////////////////////////////////////////////////////////////////////////////
+class ApplicationClass
+{
+public:
+	ApplicationClass();
+	ApplicationClass(const ApplicationClass&);
+	~ApplicationClass();
+
+	bool Initialize(int, int, HWND);
+	void Shutdown();
+	bool Frame();
+
+private:
+	bool Render();
+
+private:
+
+};
+
+#endif
+```
+#### XXXX 클래스 구현
+##### XXXXX 각 메서드 흐름
+전부 비어 있음
+##### XXXXX 원문 번역
+지금은 튜토리얼을 위한 프레임워크를 구축하고 있기 때문에 이 클래스는 전혀 비어두었습니다.
+##### XXXXX .cpp 코드
+```C++
+////////////////////////////////////////////////////////////////////////////////
+// Filename: applicationclass.cpp
+////////////////////////////////////////////////////////////////////////////////
+#include "applicationclass.h"
+
+
+ApplicationClass::ApplicationClass()
+{
+}
+
+
+ApplicationClass::ApplicationClass(const ApplicationClass& other)
+{
+}
+
+
+ApplicationClass::~ApplicationClass()
+{
+}
+
+
+bool ApplicationClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
+{
+
+	return true;
+}
+
+
+void ApplicationClass::Shutdown()
+{
+
+	return;
+}
+
+
+bool ApplicationClass::Frame()
+{
+
+	return true;
+}
+
+
+bool ApplicationClass::Render()
+{
+
+	return true;
+}
+```
