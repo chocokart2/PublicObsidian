@@ -195,6 +195,25 @@ static SystemClass* ApplicationHandle = 0;
 
 Shutdown 함수는 정리를 합니다. 애플리케이션과 입력 객체와 관련된 모든 것을 종료하고 해제합니다. 또한 창을 종료하고 관련된 핸들을 정리합니다.
 
+Run 함수는 우리의 애플리케이션이 루프를 돌고 우리가 종료하기로 결정할 때까지 모든 애플리케이션 처리를 수행하는 곳입니다. 애플리케이션 처리가 각 루프라고 불리는 Frame 함수에서 수행됩니다. 이것은 이해하는 것이 중요한 개념인데, 이제 우리 애플리케이션의 나머지 부분도 이것을 염두에 두고 작성해야 하기 때문입니다. 의사 코드는 다음과 같습니다.
+```
+while not done
+    check for windows system messages
+    process system messages
+    process application loop
+    check if user wanted to quit during the frame processing
+```
+
+다음 Frame 함수는 애플리케이션의 모든 처리가 이루어지는 곳입니다. 지금까지는 상당히 간단합니다. 사용자가 Esc 키를 눌렀고 종료하려고 하는지 확인하기 위해 입력 객체를 확인합니다. 종료하고 싶지 않으면 애플리케이션 클래스 객체를 호출하여 프레임 처리를 수행하여 해당 프레임의 그래픽을 렌더링합니다.
+
+MessageHandler 함수는 우리가 윈도우 시스템 메시지를 보내는 곳입니다. 이런 식으로 우리는 관심 있는 특정 정보를 들을 수 있습니다. 현재 우리는 키가 눌렸는지 또는 키가 놓였는지 읽고 그 정보를 입력 객체에 전달합니다. 다른 모든 정보는 윈도우 기본 메시지 핸들러로 다시 전달합니다.
+
+InitializeWindows 함수는 렌더링에 사용할 창을 빌드하는 코드를 넣는 곳입니다. 호출하는 함수로 screenWidth와 screenHeight를 반환하여 애플리케이션 전체에서 사용할 수 있습니다. 테두리가 없는 일반 검은색 창을 초기화하기 위해 일부 기본 설정을 사용하여 창을 만듭니다. 이 함수는 FULL_SCREEN이라는 전역 변수에 따라 작은 창을 만들거나 전체 화면 창을 만듭니다. 이것이 true로 설정되면 화면이 사용자의 데스크톱 창 전체를 덮습니다. 이것이 false로 설정되면 화면 중앙에 800x600 창을 만듭니다. 수정하려는 경우를 대비하여 FULL_SCREEN 전역 변수를 applicationclass.h 파일의 맨 위에 두었습니다. 이 파일의 헤더 대신 해당 파일에 전역 변수를 넣은 이유는 나중에 이해가 될 것입니다.
+
+ShutdownWindows는 바로 그렇게 합니다. 화면 설정을 정상으로 되돌리고 창과 관련된 핸들을 해제합니다.
+
+WndProc 함수는 Windows가 메시지를 보내는 곳입니다. 위의 InitializeWindows 함수에서 wc.lpfnWndProc = WndProc로 창 클래스를 초기화할 때 Windows에 이름을 알려주는 것을 알 수 있습니다. SystemClass 내부에 정의된 MessageHandler 함수로 모든 메시지를 보내도록 하여 시스템 클래스에 직접 연결했기 때문에 이 클래스 파일에 포함했습니다. 이렇게 하면 메시징 기능을 클래스에 직접 연결하고 코드를 깔끔하게 유지할 수 있습니다.
+
 ##### XXXXX .cpp 코드
 ```C++
 ////////////////////////////////////////////////////////////////////////////////
@@ -268,5 +287,201 @@ void SystemClass::Shutdown()
 	ShutdownWindows();
 	
 	return;
+}
+
+void SystemClass::Run()
+{
+	MSG msg;
+	bool done, result;
+
+
+	// Initialize the message structure.
+	ZeroMemory(&msg, sizeof(MSG));
+	
+	// Loop until there is a quit message from the window or the user.
+	done = false;
+	while(!done)
+	{
+		// Handle the windows messages.
+		if(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+
+		// If windows signals to end the application then exit out.
+		if(msg.message == WM_QUIT)
+		{
+			done = true;
+		}
+		else
+		{
+			// Otherwise do the frame processing.
+			result = Frame();
+			if(!result)
+			{
+				done = true;
+			}
+		}
+
+	}
+
+	return;
+}
+
+bool SystemClass::Frame()
+{
+	bool result;
+
+
+	// Check if the user pressed escape and wants to exit the application.
+	if(m_Input->IsKeyDown(VK_ESCAPE))
+	{
+		return false;
+	}
+
+	// Do the frame processing for the application class object.
+	result = m_Application->Frame();
+	if(!result)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
+{
+	switch(umsg)
+	{
+		// Check if a key has been pressed on the keyboard.
+		case WM_KEYDOWN:
+		{
+			// If a key is pressed send it to the input object so it can record that state.
+			m_Input->KeyDown((unsigned int)wparam);
+			return 0;
+		}
+
+		// Check if a key has been released on the keyboard.
+		case WM_KEYUP:
+		{
+			// If a key is released then send it to the input object so it can unset the state for that key.
+			m_Input->KeyUp((unsigned int)wparam);
+			return 0;
+		}
+
+		// Any other messages send to the default message handler as our application won't make use of them.
+		default:
+		{
+			return DefWindowProc(hwnd, umsg, wparam, lparam);
+		}
+	}
+}
+
+void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
+{
+	WNDCLASSEX wc;
+	DEVMODE dmScreenSettings;
+	int posX, posY;
+
+
+	// Get an external pointer to this object.	
+	ApplicationHandle = this;
+
+	// Get the instance of this application.
+	m_hinstance = GetModuleHandle(NULL);
+
+	// Give the application a name.
+	m_applicationName = L"Engine";
+
+	// Setup the windows class with default settings.
+	wc.style         = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
+	wc.lpfnWndProc   = WndProc;
+	wc.cbClsExtra    = 0;
+	wc.cbWndExtra    = 0;
+	wc.hInstance     = m_hinstance;
+	wc.hIcon         = LoadIcon(NULL, IDI_WINLOGO);
+	wc.hIconSm       = wc.hIcon;
+	wc.hCursor       = LoadCursor(NULL, IDC_ARROW);
+	wc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+	wc.lpszMenuName  = NULL;
+	wc.lpszClassName = m_applicationName;
+	wc.cbSize        = sizeof(WNDCLASSEX);
+	
+	// Register the window class.
+	RegisterClassEx(&wc);
+
+	// Determine the resolution of the clients desktop screen.
+	screenWidth  = GetSystemMetrics(SM_CXSCREEN);
+	screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+	// Setup the screen settings depending on whether it is running in full screen or in windowed mode.
+	if(FULL_SCREEN)
+	{
+		// If full screen set the screen to maximum size of the users desktop and 32bit.
+		memset(&dmScreenSettings, 0, sizeof(dmScreenSettings));
+		dmScreenSettings.dmSize       = sizeof(dmScreenSettings);
+		dmScreenSettings.dmPelsWidth  = (unsigned long)screenWidth;
+		dmScreenSettings.dmPelsHeight = (unsigned long)screenHeight;
+		dmScreenSettings.dmBitsPerPel = 32;			
+		dmScreenSettings.dmFields     = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
+
+		// Change the display settings to full screen.
+		ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN);
+
+		// Set the position of the window to the top left corner.
+		posX = posY = 0;
+	}
+	else
+	{
+		// If windowed then set it to 800x600 resolution.
+		screenWidth  = 800;
+		screenHeight = 600;
+
+		// Place the window in the middle of the screen.
+		posX = (GetSystemMetrics(SM_CXSCREEN) - screenWidth)  / 2;
+		posY = (GetSystemMetrics(SM_CYSCREEN) - screenHeight) / 2;
+	}
+
+	// Create the window with the screen settings and get the handle to it.
+	m_hwnd = CreateWindowEx(WS_EX_APPWINDOW, m_applicationName, m_applicationName, 
+				WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_POPUP,
+				posX, posY, screenWidth, screenHeight, NULL, NULL, m_hinstance, NULL);
+
+	// Bring the window up on the screen and set it as main focus.
+	ShowWindow(m_hwnd, SW_SHOW);
+	SetForegroundWindow(m_hwnd);
+	SetFocus(m_hwnd);
+
+	// Hide the mouse cursor.
+	ShowCursor(false);
+
+	return;
+}
+
+LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
+{
+	switch(umessage)
+	{
+		// Check if the window is being destroyed.
+		case WM_DESTROY:
+		{
+			PostQuitMessage(0);
+			return 0;
+		}
+
+		// Check if the window is being closed.
+		case WM_CLOSE:
+		{
+			PostQuitMessage(0);		
+			return 0;
+		}
+
+		// All other messages pass to the message handler in the system class.
+		default:
+		{
+			return ApplicationHandle->MessageHandler(hwnd, umessage, wparam, lparam);
+		}
+	}
 }
 ```
