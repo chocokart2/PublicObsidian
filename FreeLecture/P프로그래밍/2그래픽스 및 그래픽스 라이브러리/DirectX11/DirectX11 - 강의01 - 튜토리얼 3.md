@@ -362,10 +362,57 @@ private:
 #### **8. 초기화 완료**
 
 - 모든 초기화가 정상적으로 완료되었으면 `true`를 반환한다.
-###### XXXXXX 메서드 
-###### XXXXXX 메서드 
-###### XXXXXX 메서드 
-###### XXXXXX 메서드 
+###### XXXXXX 메서드 Shutdown()
+- **전체 화면 모드 해제**
+    - `m_swapChain`이 존재하면 `SetFullscreenState(false, NULL)`을 호출하여 창 모드로 변경
+- **그래픽 리소스 해제 (역순 처리)**
+    - `m_rasterState`가 존재하면 `Release()`를 호출 후 `0`으로 설정
+    - `m_depthStencilView`가 존재하면 `Release()`를 호출 후 `0`으로 설정
+    - `m_depthStencilState`가 존재하면 `Release()`를 호출 후 `0`으로 설정
+    - `m_depthStencilBuffer`가 존재하면 `Release()`를 호출 후 `0`으로 설정
+    - `m_renderTargetView`가 존재하면 `Release()`를 호출 후 `0`으로 설정
+- **Direct3D 인터페이스 해제**
+    - `m_deviceContext`가 존재하면 `Release()`를 호출 후 `0`으로 설정
+    - `m_device`가 존재하면 `Release()`를 호출 후 `0`으로 설정
+    - `m_swapChain`이 존재하면 `Release()`를 호출 후 `0`으로 설정
+###### XXXXXX 메서드 BeginScene(float red, float green, float blue, float alpha)
+- **입력 값 설정:**
+    - `red`, `green`, `blue`, `alpha` 값을 입력받음.
+- **배열 생성 및 초기화:**
+    - `color[4]` 배열을 선언함.
+    - 배열에 `red`, `green`, `blue`, `alpha` 값을 차례로 저장함.
+- **백 버퍼 초기화:**
+    - `m_deviceContext->ClearRenderTargetView(m_renderTargetView, color)` 호출.
+    - `color` 값을 사용하여 렌더 타겟 뷰를 초기화함.
+- **깊이 버퍼 초기화:**
+    - `m_deviceContext->ClearDepthStencilView(m_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0)` 호출.
+    - 깊이 버퍼를 1.0f로, 스텐실 버퍼를 0으로 설정하여 초기화함.
+###### XXXXXX 메서드 EndScene()
+- **메서드 시작**: `D3DClass::EndScene()` 메서드가 호출된다.
+- **화면 출력 준비**: 백 버퍼의 렌더링이 완료되었으므로 화면에 출력한다.
+- **VSYNC 여부 확인**: `m_vsync_enabled` 값에 따라 두 가지 경로로 분기한다.
+    - **VSYNC 활성화 (`m_vsync_enabled == true`)**:
+        - 화면 주사율에 맞춰 렌더링을 동기화한다.
+        - `m_swapChain->Present(1, 0);` 호출.
+    - **VSYNC 비활성화 (`m_vsync_enabled == false`)**:
+        - 가능한 한 빠르게 화면을 갱신한다.
+        - `m_swapChain->Present(0, 0);` 호출.
+###### XXXXXX 메서드 GetDevice()
+- m_device를 반환
+###### XXXXXX 메서드 GetDeviceContext()
+- m_deviceContext를 반환
+###### XXXXXX 메서드 GetProjectionMatrix(XMMATRIX& projectionMatrix)
+- 매개변수 projectionMatrix를 m_projectionMatrix로 설정함.
+###### XXXXXX 메서드 GetWorldMatrix(XMMATRIX& worldMatrix)
+- 매개변수 worldMatrix를 m_worldMatrix로 설정함
+###### XXXXXX 메서드 GetOrthoMatrix(XMMATRIX& orthoMatrix)
+- 매개변수 orthoMatrix를 m_orthoMatrix로 설정함
+###### XXXXXX 메서드 GetVideoCardInfo(char* cardName, int& memory)
+- 그래픽 카드의 이름과 그래픽 카드의 메모리 양을 매개변수로 기록함.
+###### XXXXXX 메서드 SetBackBufferRenderTarget()
+- m_deviceContext 객체의 OMSetRenderTargets(1, &m_renderTargetView, m_depthStencilView)를 호출한다.
+###### XXXXXX 메서드 ResetViewport()
+- m_deviceContext 객체의 RSSetViewports(1, &m_viewport)를 호출한다.
 ##### XXXXX 원문 번역
 그래서, 대부분의 클래스처럼 우리는 클래스 생성자에서 모든 멤버 포인터를 null로 초기화하는 것으로 시작합니다. 헤더 파일의 모든 포인터는 모두 여기에서 고려되었습니다.
 
