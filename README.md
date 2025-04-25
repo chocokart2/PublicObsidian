@@ -1,3 +1,6 @@
+https://docs.github.com/ko/enterprise-cloud@latest/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
+
+
 ```mermaid
 graph TD;
     A-->B;
