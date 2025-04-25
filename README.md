@@ -8,7 +8,15 @@ graph TD;
     B-->D;
     C-->D;
 ```
-
+```mermaid
+classDiagram
+    class Person {
+        -String name
+        -int age
+        +void greet()
+        +int getAge()
+    }
+```
 ```stl
 solid cube_corner
   facet normal 0.0 -1.0 0.0
