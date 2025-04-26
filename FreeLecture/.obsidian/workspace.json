@@ -29,16 +29,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 강의01 - 튜토리얼 3.md",
+                "file": "P프로그래밍/2일반 게임 엔진/Unity/Unity I - 01 - GameObject.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DirectX11 - 강의01 - 튜토리얼 3"
+              "title": "Unity I - 01 - GameObject"
+            }
+          },
+          {
+            "id": "d88e2d1c83e42eac",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "T팀용 공개 문서/2024/Team Null/클래스 구조도/Team Null - 클래스 UML.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Team Null - 클래스 UML"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -76,7 +90,7 @@
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "title": "북마크"
             }
           },
           {
@@ -197,13 +211,35 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "33928b33fbdbc945",
+  "active": "d88e2d1c83e42eac",
   "lastOpenFiles": [
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브 쓰는 법.md",
+    "T팀용 공개 문서/2024/Team Null/클래스 구조도/Team Null - 클래스 UML.md",
+    "P프로그래밍/1기초 프로그래밍 언어/무제 파일.md",
+    "T팀용 공개 문서/2024/Team Null/클래스 구조도/무제",
+    "T팀용 공개 문서/2024/Team Null/클래스 구조도",
+    "P프로그래밍/2프로그래밍 패러다임/명령형 프로그래밍/!객체 지향 프로그래밍/추상화.md",
+    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 10클래스 및 구조체.md",
+    "P프로그래밍/1기초 공부법/공부법 - 예제 교재 기반 학습법..md",
     "P프로그래밍/1기초 공부법/공부법 - 이해의 과정.md",
-    "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 강의01 - 튜토리얼 3.md",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 강의01 - 튜토리얼 2.md",
+    "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 강의01 - 튜토리얼 3.md",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 강의01 - 튜토리얼 4.md",
+    "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 강의01 - 튜토리얼 3.1.md",
+    "Pasted image 20250407183307.png",
+    "Pasted image 20250407183223.png",
+    "Pasted image 20250407183116.png",
+    "Pasted image 20250407182959.png",
+    "Pasted image 20250407182840.png",
+    "Pasted image 20250407182836.png",
+    "Pasted image 20250407182827.png",
+    "Pasted image 20250407170945.png",
+    "P프로그래밍/2일반 게임 엔진/Unity/Unity I - 01 - GameObject.md",
+    "P프로그래밍/2일반 게임 엔진/Unreal/Unreal - UInputComponent.md",
+    "P프로그래밍/2일반 게임 엔진/Unreal",
+    "0대문/01템플릿/해당 문서에 등장하는 용어 탬플릿.md",
     "0대문/01템플릿/DirectX11 강의 01 템플릿.md",
+    "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 스텐실 버퍼.md",
     "0대문/01템플릿/정보 문서 탬플릿.md",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - HLSL.md",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 준비.md",
@@ -214,37 +250,15 @@
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 버텍스 셰이더.md",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 버텍스 버퍼.md",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 버퍼.md",
-    "P프로그래밍/1기초 프로그래밍 언어/무제 파일.md",
     "P프로그래밍/2일반 게임 엔진/Unity/무제.md",
-    "P프로그래밍/2일반 게임 엔진/Unity/Unity I - 01 - GameObject.md",
-    "P프로그래밍/2일반 게임 엔진/Unity/Unity I - 02 - Component.md",
-    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 01출력.md",
-    "P프로그래밍/무제 1.md",
     "P프로그래밍/2일반 게임 엔진/Unity",
     "P프로그래밍/2일반 게임 엔진",
-    "P프로그래밍/2일반 프로그래밍 언어/CSharp/무제.md",
     "P프로그래밍/2일반 프로그래밍 언어/CSharp",
-    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 10클래스 및 구조체.md",
-    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 09함수(선언, 정의, 호출).md",
-    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 08배열, 초기화, 인덱스.md",
-    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 07반복문.md",
-    "P프로그래밍/1기초 프로그래밍 언어/CSharp/CSharp - 06조건문.md",
     "Pasted image 20250303200102.png",
-    "Pasted image 20250303185641.png",
-    "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/pic6003.gif",
-    "Pasted image 20250223192135.png",
-    "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/pic6005.gif",
-    "Pasted image 20250223190458.png",
-    "Pasted image 20250223010214.png",
-    "Pasted image 20250216203906.png",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리",
     "W범용 일/매니징",
     "W범용 일",
-    "P프로그래밍/1기초 수학/수학-선형대수학",
-    "Pasted image 20250119202634.png",
-    "P프로그래밍/2저수준_컴퓨터 하드웨어",
-    "무제 파일.canvas",
-    "0대문/01템플릿"
+    "무제 파일.canvas"
   ]
 }

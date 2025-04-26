@@ -1,6 +1,26 @@
 해당 강의의 출처는 다음과 같습니다. 정말 감사드립니다.
 https://www.rastertek.com/dx11win10tut03.html
 
+# 해당 문서에 등장하는 용어/개념 목록
+
+| 용어                   | 설명  | 옵시디언 링크 | 깃허브 링크 |
+| -------------------- | --- | ------- | ------ |
+| VSYNC                | a   | x       | X      |
+| 화면의 깊이(SCREEN_DEPTH) | b   | y       | Y      |
+| 근접 평면(SCREEN_NEAR)   | c   | z       | Z      |
+| 프레임                  |     |         |        |
+| 렌더                   |     |         |        |
+| 카메라                  |     |         |        |
+| 변환 행렬                |     |         |        |
+| 그래픽 카드의 정보가 중요한 이유   |     |         |        |
+|                      |     |         |        |
+|                      |     |         |        |
+
+
+
+
+
+
 프레임워크
 
 우리는 Direct3D 시스템 기능을 모두 처리할 프레임워크에 또 다른 클래스를 추가할 것입니다. 우리는 클래스 D3DClass를 호출할 것입니다. 저는 아래의 프레임워크 다이어그램을 업데이트했습니다:
@@ -524,6 +544,7 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	IDXGIFactory* factory;
 	IDXGIAdapter* adapter;
 	IDXGIOutput* adapterOutput;
+	
 	unsigned int numModes, i, numerator, denominator;
 	unsigned long long stringLength;
 	DXGI_MODE_DESC* displayModeList;
