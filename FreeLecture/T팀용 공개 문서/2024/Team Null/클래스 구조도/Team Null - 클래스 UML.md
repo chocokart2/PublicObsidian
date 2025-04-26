@@ -107,5 +107,5 @@ BattleEffect <|-- BattleEffectAggro
 
 ## A.2. 스킬
 
-
+ㅁㄴㅇㅁㄴ
 
