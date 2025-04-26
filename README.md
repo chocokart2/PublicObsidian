@@ -29,6 +29,12 @@ classDiagram
 
     Creature <|-- Character
     Creature <|-- Enemy
+
+    note right of Character
+        플레이어는 Creature를 상속받으며
+        name과 level을 가진다.
+    end note
+
 ```
 
 ```stl
