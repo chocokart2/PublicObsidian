@@ -10,13 +10,27 @@ graph TD;
 ```
 ```mermaid
 classDiagram
-    class Person {
-        -String name
-        -int age
-        +void greet()
-        +int getAge()
+    class Creature {
+        +String name
+        +int hp
+        +move()
+        +attack()
     }
+
+    class Character {
+        +int level
+        +equipWeapon()
+    }
+
+    class Enemy {
+        +String type
+        +taunt()
+    }
+
+    Creature <|-- Character
+    Creature <|-- Enemy
 ```
+
 ```stl
 solid cube_corner
   facet normal 0.0 -1.0 0.0
