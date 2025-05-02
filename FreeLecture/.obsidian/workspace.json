@@ -64,7 +64,7 @@
                   "state": {
                     "file": "T팀용 공개 문서/2024/Team Null/기획서 정리/1페이지 기획서(TeamNull).md",
                     "mode": "source",
-                    "source": false
+                    "source": true
                   },
                   "icon": "lucide-file",
                   "title": "1페이지 기획서(TeamNull)"
@@ -86,7 +86,7 @@
                   "state": {
                     "file": "T팀용 공개 문서/2024/Team Null/기획서 정리/1페이지 기획서(TeamNull).md",
                     "mode": "source",
-                    "source": false
+                    "source": true
                   },
                   "icon": "lucide-file",
                   "title": "1페이지 기획서(TeamNull)"
@@ -274,7 +274,7 @@
                   "state": {
                     "file": "T팀용 공개 문서/2024/Team Null/기획서 정리/1페이지 기획서(TeamNull).md",
                     "mode": "source",
-                    "source": false
+                    "source": true
                   },
                   "icon": "lucide-file",
                   "title": "1페이지 기획서(TeamNull)"
