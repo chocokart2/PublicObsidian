@@ -43,12 +43,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "T팀용 공개 문서/2024/Team Null/클래스 구조도/Team Null - 클래스 UML.md",
+                "file": "T팀용 공개 문서/2024/Team Null/기획서 정리/1페이지 기획서(TeamNull).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Team Null - 클래스 UML"
+              "title": "1페이지 기획서(TeamNull)"
             }
           }
         ],
@@ -213,8 +213,10 @@
   },
   "active": "d88e2d1c83e42eac",
   "lastOpenFiles": [
-    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브 쓰는 법.md",
     "T팀용 공개 문서/2024/Team Null/클래스 구조도/Team Null - 클래스 UML.md",
+    "T팀용 공개 문서/2024/Team Null/기획서 정리/1페이지 기획서(TeamNull).md",
+    "T팀용 공개 문서/2024/Team Null/기획서 정리",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브 쓰는 법.md",
     "P프로그래밍/1기초 프로그래밍 언어/무제 파일.md",
     "T팀용 공개 문서/2024/Team Null/클래스 구조도/무제",
     "T팀용 공개 문서/2024/Team Null/클래스 구조도",
@@ -250,7 +252,6 @@
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 버텍스 셰이더.md",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 버텍스 버퍼.md",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11/DirectX11 - 버퍼.md",
-    "P프로그래밍/2일반 게임 엔진/Unity/무제.md",
     "P프로그래밍/2일반 게임 엔진/Unity",
     "P프로그래밍/2일반 게임 엔진",
     "P프로그래밍/2일반 프로그래밍 언어/CSharp",
@@ -258,7 +259,6 @@
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리",
     "W범용 일/매니징",
-    "W범용 일",
     "무제 파일.canvas"
   ]
 }

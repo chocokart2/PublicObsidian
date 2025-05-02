@@ -38,11 +38,9 @@ classDiagram
 	    <<Enumeration>>
 	    none,
 	    battle,
-	    
-	    village,
+	    treasure,
+	    event,
 	    rest,
-	    sanctuary,
-
 	    boss
     }
     note for EAreaType "변준영씨 기획서 2.4 주요 방 종류"
@@ -87,8 +85,17 @@ ITurn <|-- IAction
 	    public int id;
 	    public int[] nears;
 	    public Vector3 scenePosition;
-	    
+	    public string DerivedClassJSON; 
+	    public EAreaType areaEnum;
     }
+
+
+
+    class AreaTreasure {
+	    public int gold
+	    public bool isTrap
+    }
+Area <|-- AreaTreasure
 
     class BattleEffect {
 	    
