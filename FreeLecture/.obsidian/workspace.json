@@ -10,7 +10,7 @@
           {
             "id": "ac7cba136a0ceac2",
             "type": "tabs",
-            "dimension": 35.14492753623188,
+            "dimension": 54.07608695652174,
             "children": [
               {
                 "id": "c08603d872a4bf3d",
@@ -76,7 +76,7 @@
           {
             "id": "030b991d5a8310b2",
             "type": "tabs",
-            "dimension": 64.85507246376811,
+            "dimension": 45.92391304347826,
             "children": [
               {
                 "id": "99f1a853f35a1728",
@@ -254,8 +254,9 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "99f1a853f35a1728",
+  "active": "f10fc98d203fd9f8",
   "lastOpenFiles": [
+    "Pasted image 20250502132142.png",
     "Pasted image 20250502113355.png",
     "T팀용 공개 문서/2024/Team Null/클래스 구조도/Team Null - 클래스 UML.md",
     "T팀용 공개 문서/2024/Team Null/기획서 정리/1페이지 기획서(TeamNull).md",
@@ -298,7 +299,6 @@
     "P프로그래밍/2일반 게임 엔진/Unity",
     "P프로그래밍/2일반 게임 엔진",
     "P프로그래밍/2일반 프로그래밍 언어/CSharp",
-    "Pasted image 20250303200102.png",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리/DirectX11",
     "P프로그래밍/2그래픽스 및 그래픽스 라이브러리",
     "W범용 일/매니징",
