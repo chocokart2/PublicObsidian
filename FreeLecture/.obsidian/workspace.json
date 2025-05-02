@@ -10,6 +10,7 @@
           {
             "id": "ac7cba136a0ceac2",
             "type": "tabs",
+            "dimension": 35.14492753623188,
             "children": [
               {
                 "id": "c08603d872a4bf3d",
@@ -75,6 +76,7 @@
           {
             "id": "030b991d5a8310b2",
             "type": "tabs",
+            "dimension": 64.85507246376811,
             "children": [
               {
                 "id": "99f1a853f35a1728",
@@ -252,7 +254,7 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "f10fc98d203fd9f8",
+  "active": "99f1a853f35a1728",
   "lastOpenFiles": [
     "Pasted image 20250502113355.png",
     "T팀용 공개 문서/2024/Team Null/클래스 구조도/Team Null - 클래스 UML.md",
