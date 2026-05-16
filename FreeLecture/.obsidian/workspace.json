@@ -99,12 +99,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "F금융/01_용어/ko_포트폴리오.md",
+                "file": "1환경 준비/01ASprite/aseprite 준비하기.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ko_포트폴리오"
+              "title": "aseprite 준비하기"
             }
           }
         ],
@@ -270,8 +270,18 @@
   },
   "active": "25427eeef8f8346f",
   "lastOpenFiles": [
-    "F금융/01_용어/ko_소비재.md",
+    "Y통제, 억압, 조작/기본 도구/측정.md",
+    "1환경 준비/01ASprite/aseprite 준비하기.md",
+    "1환경 준비/01ASprite",
+    "1환경 준비",
+    "Y통제, 억압, 조작/기본 도구/습관.md",
+    "Y통제, 억압, 조작/기본 도구/보상.md",
+    "Y통제, 억압, 조작/도구 적용/무제/식단 조절.md",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브101 - 00 메인.md",
+    "T팀용 공개 문서/2024/Team Null/Team Null - 깃허브 쓰는 법.md",
+    "T팀용 공개 문서/2024/Team Null/Team Null 메인.md",
     "F금융/01_용어/ko_포트폴리오.md",
+    "F금융/01_용어/ko_소비재.md",
     "F금융/01_용어/ko_하락장.md",
     "F금융/01_용어/ko_상승장.md",
     "F금융/01_용어/ko_배당수익률.md",
@@ -293,21 +303,11 @@
     "P프로그래밍/2일반 컴퓨터 과학/Pasted image 20241229205014.png",
     "P프로그래밍/2일반 컴퓨터 과학/출처 - 메모리 단편화 - 001GPT.md",
     "P프로그래밍/2일반 컴퓨터 과학/설명 - 2일반 컴퓨터 과학 - 메모리 단편화.md",
-    "P프로그래밍/2일반 컴퓨터 과학/가상 메모리.md",
     "P프로그래밍/2일반 컴퓨터 과학/2024-12-09 관리되는 힙.png",
-    "P프로그래밍/00_대문/P-대문.md",
     "P프로그래밍/99_아카이브",
-    "P프로그래밍/00_대문/커리큘럼/커리큘럼.md",
     "P프로그래밍/01기초 과학",
     "P프로그래밍/00_대문/커리큘럼",
-    "P프로그래밍/2일반 게임 엔진/Unity/Unity extra - Coroutine 종료 시.md",
     "P프로그래밍/도커",
-    "P프로그래밍/2일반 게임 엔진/Unity/Unity 1 - 01 - GameObject.md",
-    "P프로그래밍/2일반 게임 엔진/Unity/Unity 1 - 02 - Component.md",
-    "P프로그래밍/2일반 게임 엔진/Unity/무제.md",
-    "P프로그래밍/2네트워크 프로그래밍/TCP-IP/무제/TCP-IP - Beej - 튜토리얼 3 - IP Addresses.md",
-    "G게임/재건 주식회사",
-    "G게임",
     "Pasted image 20250502132142.png",
     "Pasted image 20250502113355.png",
     "Pasted image 20250407183307.png",
